@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "postgres",
-    "password": "manchester01",
+    "password": "postgres",
     "database": "catdog-db",
     "host": "127.0.0.1",
     "dialect": "postgres"
