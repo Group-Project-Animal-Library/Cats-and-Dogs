@@ -2,66 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
-    <title>Document</title>
+    <meta name="google-signin-client_id" content="280162624919-8g7la4kpni4j6fihpg20kku15fh56kjq.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Cats & Dogs Gallery</title>
 </head>
-<body>
-<!-- ------CAT------ -->
- <!-- card -->
-    <div class="card">
-      <!-- --image-- -->
-      <div id="img-cat">
-      </div>
-        <!-- card -->
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">Random Facts : </p>
-              <p class="subtitle is-4">@cat&dogs</p>
-            </div>
-          </div>
-            <!-- content -->
-          <div id ='txt-cat'>
-          </div>
+<body id="main">
+    <!-- BEFORE LOGIN -->
+    <div id="login-page">
+        <div class="box"></div>
+
+        <!-- FORM REGISTER -->
+        <div class="container form" id="register">
+            <h2><strong>Register</strong></h2>
+            <hr>
+            <form class="form-validate" id="form-register">                   
+                <div class="form-group">
+                    <label for="email-reg">Email address</label>
+                    <input type="email" class="form-control" id="email-reg" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>                
+                <div class="form-group">
+                    <label for="password-reg">Password</label>
+                    <input type="password" class="form-control" id="password-reg" placeholder="Password" required>
+                </div>
+                <input type="submit" class="btn btn-success" value="Sign-Up">
+                <button id="to-login" class="btn btn-primary">Have an a account</button>            
+            </form>
         </div>
+
+
+        <!-- FORM LOGIN -->
+        <div class="container form" id="login">
+            <h2><strong>Login</strong></h2>
+            <hr>
+            <form class="form-validate" id="form-login">
+                <div class="form-group">
+                    <label for="email-login">Email address</label>
+                    <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="password-login">Password</label>
+                    <input type="password" class="form-control" id="password-login" placeholder="Password" required>
+                </div>
+                <input type="submit" class="btn btn-success" value="Sign-In">
+                <button id="to-register" class="btn btn-primary">Don't have account</button>
+                <p>or sign-in with :</p>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            </form>
         </div>
-
-<!----------- DOG ------------>
-
-
-
-
-<!-- card -->
- <div class="card">
-  <!-- --image-- -->
-  <div id='img-dog'>
-  </div>
-    <!-- card -->
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4">Random Facts : </p>
-          <p class="subtitle is-4">@cat&dogs</p>
-        </div>
-      </div>
-        <!-- content -->
-      <div id ="txt-dog">
-      </div>
-    </div>
     </div>
 
+    <!-- AFTER LOGIN -->
+    <div class="container" id="main-page">
+        <!-- Navbar -->
+        <nav id="nav" class="navbar navbar-warning bg-warning justify-content-between">
+            <a class="navbar-brand"><strong>Dogs & Cats</strong></a>
+            <form class="form-inline">
+                <button class="btn btn-secondary" id="logout">Sign-Out</button>
+            </form>
+        </nav>
+        
+        <!-- Content -->
+        <form>
+            <input id="btn-refresh" class="btn btn-primary" TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+        </form>
+        <!-- CAT -->
+        <div class="container" id="content-box-cat">
+            <div class="row">
+              <div class="col">
+                <!--CARD CONTENT -->
+                <div class="card cat">
+                    <div id="img-cat">
+                        <!-- IMAGE DOG -->
+                    </div>
+                    <div class="card-body">
+                        <h2 id="card-title">Random Facts : </h2>
+                        <p class="subtitle is-4">@cat&dogs</p>
+                        <hr>
+                        <p class="card-text" id="txt-cat"> </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- DOG -->
+        <div class="container" id="content-box-dog">
+            <div class="row">
+              <div class="col">
+                <!--CARD CONTENT -->
+                <div class="card cat">    
+                    <div id="img-dog">
+                        <!-- IMAGE DOG -->
+                    </div>
+                    <div class="card-body">
+                        <h2 id="card-title">Random Facts : </h2>
+                        <p class="subtitle is-4">@cat&dogs</p>
+                        <hr>
+                        
+                        <p class="card-text" id="txt-dog"> </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>        
+    </div>
 
 
-    <div id='test'></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./sandbox.js"></script> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

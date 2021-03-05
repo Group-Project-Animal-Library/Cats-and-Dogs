@@ -30,9 +30,10 @@ class Api{
 
 
     static catPict(req,res,next){
+        const api_key = process.env.API_KEY
         axios({
             method : 'get',
-            url : 'https://api.thecatapi.com/v1/images/search'
+            url : `https://api.thecatapi.com/v1/images/search?api_key=${api_key}`
         })
         .then(data =>{
             res.status(200).json({ data :data.data[0].url})

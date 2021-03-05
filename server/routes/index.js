@@ -4,11 +4,11 @@ const Api = require('../controllers/api')
 const authenticate = require('../middlewares/auth');
 
 router.post('/register', User.register);
-// router.post('/login', User.login);
-// router.post('/loginGoogle', User.loginGoogle);
+router.post('/login', User.login);
+router.post('/loginGoogle', User.loginGoogle);
 
 
-// router.use(authenticate);
+router.use(authenticate);
 
 // ----API 3rd Party---
 router.get('/catFacts',Api.catFacts)
