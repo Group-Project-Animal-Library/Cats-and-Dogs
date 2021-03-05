@@ -10,7 +10,7 @@ class UserController {
         })
             .then((data) => {
                 res.status(201).json({id: data.id, email: data.email})
-            })
+            })git
             .catch((err) => {
                 next(err)
             })
