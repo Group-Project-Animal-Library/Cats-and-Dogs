@@ -1,0 +1,51 @@
+#main {
+    background-image: url(./img/843064.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.box {
+    box-shadow: 5px 5px 15px 15px rgb(56, 56, 56);
+    background-color: whitesmoke;
+    position: relative;
+    top: 9em;
+    left: 30em;
+    border: 1px;
+    width: 25em;
+    height: 25em;
+    filter: blur(1px);
+    opacity: 0.5;
+}
+
+div .form {
+    display: flexbox;
+    width: 20em;
+    justify-content: center;
+    position: relative;
+    top: -15em;
+}
+
+#nav {
+    color: rgb(63, 63, 63);
+}
+
+#content-box-cat {
+    position: relative;
+    top: 5em;
+    width: 50em
+}
+
+#content-box-dog {
+    position: relative;
+    margin-top: 15em;
+    width: 50em;
+    margin-bottom: 5em;
+}
+
+#btn-refresh {
+    position: relative;
+    top: 3em;
+    left: 25em;
+    width: 20em
+}
