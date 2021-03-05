@@ -74,6 +74,7 @@ class UserController {
                 email: user[0].email
               })
             })
+            .catch(next)
         }
         verify().catch(console.error);
       }

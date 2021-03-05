@@ -9,8 +9,8 @@ const authenticate = (req, res, next) => {
             email: user.email
         }
     })
-        .then((user) => {
-            req.currentUser = {id: user.id, email: user.email};
+        .then((data) => {
+            req.currentUser = {id: data.id, email: data.email};
             next();
         })
         .catch(next)
