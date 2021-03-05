@@ -1,16 +1,59 @@
-function errHandler (err, req, res) {
-    if (err.errors) {
-        let arr = [];
-        for (let i = 0; i < err.errors.length; i++) {
-            arr.push(err.errors[i].message)
+function errHandler(err, req, res, next) {
+    if (err.name === 'SequelizeValidationError') {
+        res.status(400).json({
+            code: 400,
+            message: err.message.split('\n').join(' ').split("Validation error: ").join("")
+        });
+    } else if (err.name === 'SequelizeUniqueConstraintError') {
+        if (err.errors[0].message == 'email must be unique') {
+            res.status(400).json({
+                code: 400,
+                message: 'Email already registered'
+            });
+        } else {
+            res.status(400).json({
+                code: 400,
+                message: err.errors[0].message
+            });
         }
-        msg = arr.join(', ')
-        res.status(400).json({message: msg})
-    } else if (err.message) {
-        res.status(err.code).json({message: err.message})
+    } else if (err.name == "JsonWebTokenError") {
+        res.status(401).json({
+            code: 401,
+            message: 'Unauthorized.'
+        })
+    } else if (err.code == 400) {
+        res.status(err.code).json({
+            code: err.code,
+            message: err.message
+        });
+    } else if (err.code == 401) {
+        res.status(err.code).json({
+            code: err.code,
+            message: err.message
+        });
+    } else if (err.code == 403) {
+        res.status(err.code).json({
+            code: err.code,
+            message: err.message
+        });
+    } else if (err.code == 404) {
+        res.status(err.code).json({
+            code: err.code,
+            message: err.message
+        });
+    } else if (err.code == 500) {
+        res.status(err.code).json({
+            code: err.code,
+            message: err.message
+        });
     } else {
-        res.status(500).json({message: 'Internal Server Error'})
+        res.status(500).json({
+            code: 500,
+            message: err.message,
+            isHandled: false,
+            detail: err
+        });
     }
 }
 
-module.exports = errHandler
+module.exports = errHandler;
